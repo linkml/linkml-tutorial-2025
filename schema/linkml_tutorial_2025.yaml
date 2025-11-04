@@ -2,8 +2,6 @@ name: linkml-tutorial-2025
 description: This is a demo schema for use in training LinkML Schema developers in
   key LinkML model and build features.
 title: linkml-tutorial-2025
-see_also:
-- https://linkml.github.io/linkml-tutorial-2025
 id: https://w3id.org/linkml/linkml-tutorial-2025
 imports:
 - linkml:types
@@ -15,15 +13,6 @@ prefixes:
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-  biolink:
-    prefix_prefix: biolink
-    prefix_reference: https://w3id.org/biolink/
-  schema:
-    prefix_prefix: schema
-    prefix_reference: http://schema.org/
-  PATO:
-    prefix_prefix: PATO
-    prefix_reference: http://purl.obolibrary.org/obo/PATO_
   example:
     prefix_prefix: example
     prefix_reference: https://example.org/
@@ -298,25 +287,6 @@ types:
     base: str
     uri: xsd:string
     repr: str
-enums:
-  PersonStatus:
-    name: PersonStatus
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/PersonStatus
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    permissible_values:
-      ALIVE:
-        text: ALIVE
-        description: the person is living
-        meaning: PATO:0001421
-      DEAD:
-        text: DEAD
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        text: UNKNOWN
-        description: the vital status is not known
-        todos:
-        - map this to an ontology
 slots:
   id:
     name: id
@@ -332,104 +302,6 @@ slots:
     - NamedThing
     range: uriorcurie
     required: true
-  name:
-    name: name
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/name
-    description: A human-readable name for a thing
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    mappings:
-    - schema:name
-    slot_uri: schema:name
-    owner: NamedThing
-    domain_of:
-    - NamedThing
-    range: string
-  description:
-    name: description
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/description
-    description: A human-readable description for a thing
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    mappings:
-    - schema:description
-    slot_uri: schema:description
-    owner: NamedThing
-    domain_of:
-    - NamedThing
-    range: string
-  primary_email:
-    name: primary_email
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/primary_email
-    description: The main email address of a person
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    mappings:
-    - schema:email
-    slot_uri: schema:email
-    owner: Person
-    domain_of:
-    - Person
-    range: string
-  birth_date:
-    name: birth_date
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/birth_date
-    description: Date on which a person is born
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    mappings:
-    - schema:birthDate
-    slot_uri: schema:birthDate
-    owner: Person
-    domain_of:
-    - Person
-    range: date
-  age_in_years:
-    name: age_in_years
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/age_in_years
-    description: Number of years since birth
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    slot_uri: linkml_tutorial_2025:age_in_years
-    owner: Person
-    domain_of:
-    - Person
-    range: integer
-  vital_status:
-    name: vital_status
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/vital_status
-    description: living or dead status
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    slot_uri: linkml_tutorial_2025:vital_status
-    owner: Person
-    domain_of:
-    - Person
-    range: PersonStatus
-  personCollection__entries:
-    name: personCollection__entries
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    slot_uri: linkml_tutorial_2025:entries
-    alias: entries
-    owner: PersonCollection
-    domain_of:
-    - PersonCollection
-    range: Person
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  Person_primary_email:
-    name: Person_primary_email
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/primary_email
-    description: The main email address of a person
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    mappings:
-    - schema:email
-    is_a: primary_email
-    domain: Person
-    slot_uri: schema:email
-    alias: primary_email
-    owner: Person
-    domain_of:
-    - Person
-    is_usage_slot: true
-    usage_slot_name: primary_email
-    range: string
-    pattern: ^\S+@[\S+\.]+\S+
 classes:
   NamedThing:
     name: NamedThing
@@ -440,46 +312,10 @@ classes:
     - schema:Thing
     slots:
     - id
-    - name
-    - description
     class_uri: schema:Thing
-  Person:
-    name: Person
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/Person
-    description: Represents a Person
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    is_a: NamedThing
-    slots:
-    - id
-    - name
-    - description
-    - Person_primary_email
-    - birth_date
-    - age_in_years
-    - vital_status
-    slot_usage:
-      primary_email:
-        name: primary_email
-        pattern: ^\S+@[\S+\.]+\S+
-    class_uri: linkml_tutorial_2025:Person
-  PersonCollection:
-    name: PersonCollection
-    definition_uri: https://w3id.org/linkml/linkml-tutorial-2025/PersonCollection
-    description: A holder for Person objects
-    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
-    slots:
-    - personCollection__entries
-    attributes:
-      entries:
-        name: entries
-        range: Person
-        multivalued: true
-        inlined_as_list: true
-    class_uri: linkml_tutorial_2025:PersonCollection
-    tree_root: true
 metamodel_version: 1.7.0
 source_file: linkml_tutorial_2025.yaml
-source_file_date: '2025-11-03T22:37:15'
-source_file_size: 2314
-generation_date: '2025-11-03T22:37:24'
+source_file_date: '2025-11-04T19:22:11'
+source_file_size: 765
+generation_date: '2025-11-04T19:22:19'
 
