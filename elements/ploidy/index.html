@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://linkml.github.io/linkml-tutorial-2025/elements/id/">
+        <link rel="canonical" href="https://linkml.github.io/linkml-tutorial-2025/elements/ploidy/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: id - linkml-tutorial-2025</title>
+        <title>Slot: ploidy - linkml-tutorial-2025</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-id" class="md-skip">
+        <a href="#slot-ploidy" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: id
+              Slot: ploidy
             
           </span>
         </div>
@@ -386,10 +386,10 @@
   
 
 
-<h1 id="slot-id">Slot: id</h1>
-<p><em>Sample ID (No Edit) - prefilled identifier</em></p>
-<p>URI: <a href="http://schema.org/identifier">schema:identifier</a>
-Alias: id</p>
+<h1 id="slot-ploidy">Slot: ploidy</h1>
+<p><em>The ploidy level of the genome (e.g. allopolyploid, haploid, diploid, triploid, tetraploid). For terms, select terms listed under class ploidy (PATO:001374) of Phenotypic Quality Ontology (PATO)</em></p>
+<p>URI: <a href="http://purl.obolibrary.org/obo/PATO_0001374">PATO:0001374</a>
+Alias: ploidy</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -411,12 +411,7 @@ Alias: id</p>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Integer/">Integer</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../PloidyEnum/">PloidyEnum</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -434,28 +429,36 @@ Alias: id</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>schema:identifier</td>
+<td>PATO:0001374</td>
 </tr>
 <tr>
 <td>native</td>
-<td>linkml_tutorial_2025:id</td>
+<td>linkml_tutorial_2025:ploidy</td>
+</tr>
+<tr>
+<td>exact</td>
+<td>PATO:0001374, NCIT:C17001, SIO:010278</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: id
-description: Sample ID (No Edit) - prefilled identifier
+<pre><code class="language-yaml">name: ploidy
+description: The ploidy level of the genome (e.g. allopolyploid, haploid, diploid,
+  triploid, tetraploid). For terms, select terms listed under class ploidy (PATO:001374)
+  of Phenotypic Quality Ontology (PATO)
 from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+exact_mappings:
+- PATO:0001374
+- NCIT:C17001
+- SIO:010278
 rank: 1000
-slot_uri: schema:identifier
-identifier: true
-alias: id
+slot_uri: PATO:0001374
+alias: ploidy
 domain_of:
 - PlantTissueSample
-range: integer
-required: true
+range: PloidyEnum
 
 </code></pre>
 

@@ -57,7 +57,7 @@
          <lastmod>2025-11-04</lastmod>
     </url>
     <url>
-         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/NamedThing/</loc>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/NCBITaxonEnum/</loc>
          <lastmod>2025-11-04</lastmod>
     </url>
     <url>
@@ -73,6 +73,18 @@
          <lastmod>2025-11-04</lastmod>
     </url>
     <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/PlantTissueSample/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/PloidyEnum/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/SampleContainerEnum/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
          <loc>https://linkml.github.io/linkml-tutorial-2025/elements/Sparqlpath/</loc>
          <lastmod>2025-11-04</lastmod>
     </url>
@@ -85,6 +97,10 @@
          <lastmod>2025-11-04</lastmod>
     </url>
     <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/TissueTypeEnum/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
          <loc>https://linkml.github.io/linkml-tutorial-2025/elements/Uri/</loc>
          <lastmod>2025-11-04</lastmod>
     </url>
@@ -93,11 +109,71 @@
          <lastmod>2025-11-04</lastmod>
     </url>
     <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/broad_scale_environmental_context/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/collection_date_time/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/depth_meters/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/elevation_meters/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/environmental_medium/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
          <loc>https://linkml.github.io/linkml-tutorial-2025/elements/id/</loc>
          <lastmod>2025-11-04</lastmod>
     </url>
     <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/isolate/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
          <loc>https://linkml.github.io/linkml-tutorial-2025/elements/linkml-tutorial-2025/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/local_environmental_context/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/ncbi_taxonomy_id/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/plate_location/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/ploidy/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/sample_container/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/sample_size/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/strain_variety_cultivar/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/tissue/</loc>
+         <lastmod>2025-11-04</lastmod>
+    </url>
+    <url>
+         <loc>https://linkml.github.io/linkml-tutorial-2025/elements/tissue_plant_ontology_term/</loc>
          <lastmod>2025-11-04</lastmod>
     </url>
 </urlset>

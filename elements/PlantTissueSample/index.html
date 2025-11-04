@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://linkml.github.io/linkml-tutorial-2025/elements/NamedThing/" rel="canonical"/>
+<link href="https://linkml.github.io/linkml-tutorial-2025/elements/PlantTissueSample/" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.23" name="generator"/>
-<title>Class: NamedThing - linkml-tutorial-2025</title>
+<title>Class: PlantTissueSample - linkml-tutorial-2025</title>
 <link href="../../assets/stylesheets/main.84d31ad4.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-namedthing">
+<a class="md-skip" href="#class-planttissuesample">
           Skip to content
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: NamedThing
+              Class: PlantTissueSample
             
           </span>
 </div>
@@ -222,13 +222,79 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="class-namedthing">Class: NamedThing</h1>
-<p><em>A generic grouping for any identifiable entity</em></p>
-<p>URI: <a href="http://schema.org/Thing">schema:Thing</a></p>
+<h1 id="class-planttissuesample">Class: PlantTissueSample</h1>
+<p><em>Plant tissue sample metadata including collection, taxonomic, and environmental information</em></p>
+<p>URI: <a href="https://w3id.org/linkml/linkml-tutorial-2025/PlantTissueSample">linkml_tutorial_2025:PlantTissueSample</a></p>
 <div class="mermaid"> classDiagram
-    class NamedThing
-    click NamedThing href "../NamedThing/"
-      NamedThing : id
+    class PlantTissueSample
+    click PlantTissueSample href "../PlantTissueSample/"
+      PlantTissueSample : broad_scale_environmental_context
+
+      PlantTissueSample : collection_date_time
+
+      PlantTissueSample : depth_meters
+
+      PlantTissueSample : elevation_meters
+
+      PlantTissueSample : environmental_medium
+
+      PlantTissueSample : id
+
+      PlantTissueSample : isolate
+
+      PlantTissueSample : local_environmental_context
+
+      PlantTissueSample : ncbi_taxonomy_id
+
+
+
+
+
+        PlantTissueSample --&gt; "1" NCBITaxonEnum : ncbi_taxonomy_id
+        click NCBITaxonEnum href "../NCBITaxonEnum/"
+
+
+
+      PlantTissueSample : plate_location
+
+      PlantTissueSample : ploidy
+
+
+
+
+
+        PlantTissueSample --&gt; "0..1" PloidyEnum : ploidy
+        click PloidyEnum href "../PloidyEnum/"
+
+
+
+      PlantTissueSample : sample_container
+
+
+
+
+
+        PlantTissueSample --&gt; "1" SampleContainerEnum : sample_container
+        click SampleContainerEnum href "../SampleContainerEnum/"
+
+
+
+      PlantTissueSample : sample_size
+
+      PlantTissueSample : strain_variety_cultivar
+
+      PlantTissueSample : tissue
+
+      PlantTissueSample : tissue_plant_ontology_term
+
+
+
+
+
+        PlantTissueSample --&gt; "0..1" TissueTypeEnum : tissue_plant_ontology_term
+        click TissueTypeEnum href "../TissueTypeEnum/"
+
+
 
 
 </div>
@@ -246,8 +312,98 @@
 <tbody>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>A unique identifier for a thing</td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
+<td>Sample ID (No Edit) - prefilled identifier</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_container/">sample_container</a></td>
+<td>1 <br/> <a href="../SampleContainerEnum/">SampleContainerEnum</a></td>
+<td>Select tube or plate</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../plate_location/">plate_location</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Required if samples provided in a plate</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../strain_variety_cultivar/">strain_variety_cultivar</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Name or ID of the cultivar, variety, strain, or other similar designation of ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../isolate/">isolate</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>Isolate or mutant name</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ncbi_taxonomy_id/">ncbi_taxonomy_id</a></td>
+<td>1 <br/> <a href="../NCBITaxonEnum/">NCBITaxonEnum</a></td>
+<td>Unique identifier from the NCBI taxonomy database</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ploidy/">ploidy</a></td>
+<td>0..1 <br/> <a href="../PloidyEnum/">PloidyEnum</a></td>
+<td>The ploidy level of the genome (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../collection_date_time/">collection_date_time</a></td>
+<td>1 <br/> <a href="../Datetime/">Datetime</a></td>
+<td>The time of sampling, either as an instance (single point in time) or interva...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_size/">sample_size</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>The total amount or size (volume (ml), mass (g) or area (m2)) of sample colle...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../tissue/">tissue</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
+<td>Detailed description of the organ or type of tissue sampled (e</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../tissue_plant_ontology_term/">tissue_plant_ontology_term</a></td>
+<td>0..1 <br/> <a href="../TissueTypeEnum/">TissueTypeEnum</a></td>
+<td>Plant ontology term corresponding to plant structure sampled</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../depth_meters/">depth_meters</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>The vertical distance (in meters) below local surface</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../elevation_meters/">elevation_meters</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>Elevation (in meters) of the sampling site as measured by the vertical distan...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../broad_scale_environmental_context/">broad_scale_environmental_context</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>The major environmental system the sample or specimen came from</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../local_environmental_context/">local_environmental_context</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>The entity or entities which are in the sample or specimen's local vicinity a...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../environmental_medium/">environmental_medium</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>The environmental material(s) immediately surrounding the sample or specimen ...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -268,11 +424,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>schema:Thing</td>
+<td>linkml_tutorial_2025:PlantTissueSample</td>
 </tr>
 <tr>
 <td>native</td>
-<td>linkml_tutorial_2025:NamedThing</td>
+<td>linkml_tutorial_2025:PlantTissueSample</td>
 </tr>
 </tbody>
 </table>
@@ -280,34 +436,235 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: NamedThing
-description: A generic grouping for any identifiable entity
+<pre><code class="language-yaml">name: PlantTissueSample
+description: Plant tissue sample metadata including collection, taxonomic, and environmental
+  information
 from_schema: https://w3id.org/linkml/linkml-tutorial-2025
 slots:
 - id
-class_uri: schema:Thing
+- sample_container
+- plate_location
+- strain_variety_cultivar
+- isolate
+- ncbi_taxonomy_id
+- ploidy
+- collection_date_time
+- sample_size
+- tissue
+- tissue_plant_ontology_term
+- depth_meters
+- elevation_meters
+- broad_scale_environmental_context
+- local_environmental_context
+- environmental_medium
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: NamedThing
-description: A generic grouping for any identifiable entity
+<pre><code class="language-yaml">name: PlantTissueSample
+description: Plant tissue sample metadata including collection, taxonomic, and environmental
+  information
 from_schema: https://w3id.org/linkml/linkml-tutorial-2025
 attributes:
   id:
     name: id
-    description: A unique identifier for a thing
+    description: Sample ID (No Edit) - prefilled identifier
     from_schema: https://w3id.org/linkml/linkml-tutorial-2025
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
     alias: id
-    owner: NamedThing
+    owner: PlantTissueSample
     domain_of:
-    - NamedThing
+    - PlantTissueSample
+    range: integer
+  sample_container:
+    name: sample_container
+    description: Select tube or plate
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: sample_container
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: SampleContainerEnum
+    required: true
+  plate_location:
+    name: plate_location
+    description: Required if samples provided in a plate. For partial plates, fill
+      by columns. Leave blank if the sample will be shipped in a tube (e.g., B1)
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: plate_location
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: string
+    pattern: ^[A-H][1-9][0-2]?$
+  strain_variety_cultivar:
+    name: strain_variety_cultivar
+    description: Name or ID of the cultivar, variety, strain, or other similar designation
+      of the primary organism being sampled
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: strain_variety_cultivar
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: string
+    required: true
+  isolate:
+    name: isolate
+    description: Isolate or mutant name
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: isolate
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: string
+  ncbi_taxonomy_id:
+    name: ncbi_taxonomy_id
+    description: Unique identifier from the NCBI taxonomy database
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: ncbi_taxonomy_id
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: NCBITaxonEnum
+    required: true
+  ploidy:
+    name: ploidy
+    description: The ploidy level of the genome (e.g. allopolyploid, haploid, diploid,
+      triploid, tetraploid). For terms, select terms listed under class ploidy (PATO:001374)
+      of Phenotypic Quality Ontology (PATO)
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    exact_mappings:
+    - PATO:0001374
+    - NCIT:C17001
+    - SIO:010278
+    rank: 1000
+    slot_uri: PATO:0001374
+    alias: ploidy
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: PloidyEnum
+  collection_date_time:
+    name: collection_date_time
+    description: The time of sampling, either as an instance (single point in time)
+      or interval. In case no exact time is available, the date/time can be right
+      truncated. All times must be I SO8601 compliant
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: collection_date_time
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: datetime
+    required: true
+  sample_size:
+    name: sample_size
+    description: The total amount or size (volume (ml), mass (g) or area (m2)) of
+      sample collected. Separate the number and unit by a single space
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: sample_size
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: string
+    required: true
+    pattern: ^[0-9]+(\.[0-9]+)?\s+(g|ml|m2)$
+  tissue:
+    name: tissue
+    description: Detailed description of the organ or type of tissue sampled (e.g.
+      unopened flower buds with 1mm petal visible, 5 mm lateral root tips, 4th leaf
+      fully expanded)
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: tissue
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: string
+    required: true
+  tissue_plant_ontology_term:
+    name: tissue_plant_ontology_term
+    description: Plant ontology term corresponding to plant structure sampled. May
+      include multiple terms separated by semicolons. See https://planteome.org
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: tissue_plant_ontology_term
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: TissueTypeEnum
+  depth_meters:
+    name: depth_meters
+    description: The vertical distance (in meters) below local surface. For sediment
+      or soil samples depth is measured from sediment or soil surface, respectively.
+      Depth can be reported as an interval for subsurface samples
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: depth_meters
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: float
+  elevation_meters:
+    name: elevation_meters
+    description: Elevation (in meters) of the sampling site as measured by the vertical
+      distance from mean sea level
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: elevation_meters
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: float
+  broad_scale_environmental_context:
+    name: broad_scale_environmental_context
+    description: The major environmental system the sample or specimen came from.
+      The system(s) identified should have a coarse spatial grain, to provide the
+      big contextualising environment of where the sampling was done (e.g. in the
+      desert or a rainforest). See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: broad_scale_environmental_context
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
     range: uriorcurie
-class_uri: schema:Thing
+  local_environmental_context:
+    name: local_environmental_context
+    description: The entity or entities which are in the sample or specimen's local
+      vicinity and which you believe have significant causal influences on your sample
+      or specimen. The terms used here should be countable things (e.g. a rock, a
+      snow crystal, a cave, a hydrothermal vent) of smaller spatial grain than your
+      entry for broad-scale environmental context. See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: local_environmental_context
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: uriorcurie
+  environmental_medium:
+    name: environmental_medium
+    description: The environmental material(s) immediately surrounding the sample
+      or specimen at the time of sampling. These should be mass/volume nouns (e.g.
+      air, water) and not discrete, countable entities (e.g. a tree, a leaf, a table
+      top). See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
+    from_schema: https://w3id.org/linkml/linkml-tutorial-2025
+    rank: 1000
+    alias: environmental_medium
+    owner: PlantTissueSample
+    domain_of:
+    - PlantTissueSample
+    range: uriorcurie
 
 </code></pre>
 </details>

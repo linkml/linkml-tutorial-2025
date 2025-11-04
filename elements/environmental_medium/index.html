@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://linkml.github.io/linkml-tutorial-2025/elements/id/">
+        <link rel="canonical" href="https://linkml.github.io/linkml-tutorial-2025/elements/environmental_medium/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: id - linkml-tutorial-2025</title>
+        <title>Slot: environmental_medium - linkml-tutorial-2025</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-id" class="md-skip">
+        <a href="#slot-environmental_medium" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: id
+              Slot: environmental_medium
             
           </span>
         </div>
@@ -386,10 +386,10 @@
   
 
 
-<h1 id="slot-id">Slot: id</h1>
-<p><em>Sample ID (No Edit) - prefilled identifier</em></p>
-<p>URI: <a href="http://schema.org/identifier">schema:identifier</a>
-Alias: id</p>
+<h1 id="slot-environmental_medium">Slot: environmental_medium</h1>
+<p><em>The environmental material(s) immediately surrounding the sample or specimen at the time of sampling. These should be mass/volume nouns (e.g. air, water) and not discrete, countable entities (e.g. a tree, a leaf, a table top). See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS</em></p>
+<p>URI: <a href="https://w3id.org/linkml/linkml-tutorial-2025/environmental_medium">linkml_tutorial_2025:environmental_medium</a>
+Alias: environmental_medium</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -411,12 +411,7 @@ Alias: id</p>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Integer/">Integer</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -434,28 +429,27 @@ Alias: id</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>schema:identifier</td>
+<td>linkml_tutorial_2025:environmental_medium</td>
 </tr>
 <tr>
 <td>native</td>
-<td>linkml_tutorial_2025:id</td>
+<td>linkml_tutorial_2025:environmental_medium</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: id
-description: Sample ID (No Edit) - prefilled identifier
+<pre><code class="language-yaml">name: environmental_medium
+description: The environmental material(s) immediately surrounding the sample or specimen
+  at the time of sampling. These should be mass/volume nouns (e.g. air, water) and
+  not discrete, countable entities (e.g. a tree, a leaf, a table top). See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
 from_schema: https://w3id.org/linkml/linkml-tutorial-2025
 rank: 1000
-slot_uri: schema:identifier
-identifier: true
-alias: id
+alias: environmental_medium
 domain_of:
 - PlantTissueSample
-range: integer
-required: true
+range: uriorcurie
 
 </code></pre>
 

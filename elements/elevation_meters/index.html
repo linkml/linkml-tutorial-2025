@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://linkml.github.io/linkml-tutorial-2025/elements/id/">
+        <link rel="canonical" href="https://linkml.github.io/linkml-tutorial-2025/elements/elevation_meters/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Slot: id - linkml-tutorial-2025</title>
+        <title>Slot: elevation_meters - linkml-tutorial-2025</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-id" class="md-skip">
+        <a href="#slot-elevation_meters" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: id
+              Slot: elevation_meters
             
           </span>
         </div>
@@ -386,10 +386,10 @@
   
 
 
-<h1 id="slot-id">Slot: id</h1>
-<p><em>Sample ID (No Edit) - prefilled identifier</em></p>
-<p>URI: <a href="http://schema.org/identifier">schema:identifier</a>
-Alias: id</p>
+<h1 id="slot-elevation_meters">Slot: elevation_meters</h1>
+<p><em>Elevation (in meters) of the sampling site as measured by the vertical distance from mean sea level</em></p>
+<p>URI: <a href="https://w3id.org/linkml/linkml-tutorial-2025/elevation_meters">linkml_tutorial_2025:elevation_meters</a>
+Alias: elevation_meters</p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -411,12 +411,7 @@ Alias: id</p>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Integer/">Integer</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../Float/">Float</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -434,28 +429,26 @@ Alias: id</p>
 <tbody>
 <tr>
 <td>self</td>
-<td>schema:identifier</td>
+<td>linkml_tutorial_2025:elevation_meters</td>
 </tr>
 <tr>
 <td>native</td>
-<td>linkml_tutorial_2025:id</td>
+<td>linkml_tutorial_2025:elevation_meters</td>
 </tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: id
-description: Sample ID (No Edit) - prefilled identifier
+<pre><code class="language-yaml">name: elevation_meters
+description: Elevation (in meters) of the sampling site as measured by the vertical
+  distance from mean sea level
 from_schema: https://w3id.org/linkml/linkml-tutorial-2025
 rank: 1000
-slot_uri: schema:identifier
-identifier: true
-alias: id
+alias: elevation_meters
 domain_of:
 - PlantTissueSample
-range: integer
-required: true
+range: float
 
 </code></pre>
 
