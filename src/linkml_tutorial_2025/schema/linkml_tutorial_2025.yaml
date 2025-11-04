@@ -10,6 +10,14 @@ prefixes:
   linkml_tutorial_2025: https://w3id.org/linkml/linkml-tutorial-2025/
   linkml: https://w3id.org/linkml/
   example: https://example.org/
+  schema: http://schema.org/
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
+  PO: http://purl.obolibrary.org/obo/PO_
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  SIO: http://semanticscience.org/resource/SIO_
+
 default_prefix: linkml_tutorial_2025
 default_range: string
 
@@ -17,16 +25,170 @@ imports:
   - linkml:types
 
 classes:
-  NamedThing:
+  PlantTissueSample:
     description: >-
-      A generic grouping for any identifiable entity
+      Plant tissue sample metadata including collection, taxonomic, and environmental information
     slots:
       - id
-    class_uri: schema:Thing
+      - sample_container
+      - plate_location
+      - strain_variety_cultivar
+      - isolate
+      - ncbi_taxonomy_id
+      - ploidy
+      - collection_date_time
+      - sample_size
+      - tissue
+      - tissue_plant_ontology_term
+      - depth_meters
+      - elevation_meters
+      - broad_scale_environmental_context
+      - local_environmental_context
+      - environmental_medium
+
+enums:
+  SampleContainerEnum:
+    permissible_values:
+      tube:
+        description: Sample provided in a tube
+      plate:
+        description: Sample provided in a plate
+
+  PloidyEnum:
+    permissible_values:
+      haploid:
+        meaning: PATO:0001393
+      diploid:
+        meaning: PATO:0001394
+      triploid:
+        meaning: PATO:0001395
+      tetraploid:
+        meaning: PATO:0001396
+      allopolyploid:
+        meaning: PATO:0001392
+
+  NCBITaxonEnum:
+    reachable_from:
+      source_ontology: obo:ncbitaxon
+
+  TissueTypeEnum:
+    reachable_from:
+      source_ontology: obo:po
+      source_nodes:
+        - PO:0025131
+      include_self: false
+      relationship_types:
+        - rdfs:subClassOf
 
 slots:
   id:
     identifier: true
     slot_uri: schema:identifier
+    range: integer
+    description: Sample ID (No Edit) - prefilled identifier
+
+  sample_container:
+    required: true
+    range: SampleContainerEnum
+    description: Select tube or plate
+
+  plate_location:
+    range: string
+    description: >-
+      Required if samples provided in a plate. For partial plates, fill by columns. Leave blank if the
+      sample will be shipped in a tube (e.g., B1)
+    pattern: "^[A-H][1-9][0-2]?$"
+
+  strain_variety_cultivar:
+    required: true
+    range: string
+    description: >-
+      Name or ID of the cultivar, variety, strain, or other similar designation of the primary
+      organism being sampled
+
+  isolate:
+    range: string
+    description: Isolate or mutant name
+
+  ncbi_taxonomy_id:
+    required: true
+    range: NCBITaxonEnum
+    description: Unique identifier from the NCBI taxonomy database
+
+  ploidy:
+    range: PloidyEnum
+    description: >-
+      The ploidy level of the genome (e.g. allopolyploid, haploid, diploid, triploid, tetraploid).
+      For terms, select terms listed under class ploidy (PATO:001374) of Phenotypic Quality Ontology (PATO)
+    slot_uri: PATO:0001374
+    exact_mappings:
+      - PATO:0001374
+      - NCIT:C17001
+      - SIO:010278
+
+  collection_date_time:
+    required: true
+    range: datetime
+    description: >-
+      The time of sampling, either as an instance (single point in time) or interval.
+      In case no exact time is available, the date/time can be right truncated. All times must be I
+      SO8601 compliant
+
+  sample_size:
+    required: true
+    range: string
+    description: >-
+      The total amount or size (volume (ml), mass (g) or area (m2)) of sample collected.
+      Separate the number and unit by a single space
+    pattern: "^[0-9]+(\\.[0-9]+)?\\s+(g|ml|m2)$"
+
+  tissue:
+    required: true
+    range: string
+    description: >-
+      Detailed description of the organ or type of tissue sampled (e.g.
+      unopened flower buds with 1mm petal visible, 5 mm lateral root tips, 4th leaf fully expanded)
+
+  tissue_plant_ontology_term:
+    range: TissueTypeEnum
+    multivalued: true
+    description: >-
+      Plant ontology term corresponding to plant structure sampled. May include
+      multiple terms separated by semicolons. See https://planteome.org
+
+  depth_meters:
+    range: float
+    description: >-
+      The vertical distance (in meters) below local surface. For sediment or soil samples
+      depth is measured from sediment or soil surface, respectively. Depth can be reported as an
+      interval for subsurface samples
+
+  elevation_meters:
+    range: float
+    description: >-
+      Elevation (in meters) of the sampling site as measured by the vertical distance from mean sea level
+
+  broad_scale_environmental_context:
     range: uriorcurie
-    description: A unique identifier for a thing
+    description: >-
+      The major environmental system the sample or specimen came from.
+      The system(s) identified should have a coarse spatial grain, to provide the
+      big contextualising environment of where the sampling was done (e.g. in the desert or a rainforest).
+      See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
+
+  local_environmental_context:
+    range: uriorcurie
+    description: >-
+      The entity or entities which are in the sample or specimen's local vicinity and which you
+      believe have significant causal influences on your sample or specimen. The terms used here
+      should be countable things (e.g. a rock, a snow crystal, a cave, a hydrothermal vent) of
+      smaller spatial grain than your entry for broad-scale environmental context.
+      See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
+
+  environmental_medium:
+    range: uriorcurie
+    description: >-
+      The environmental material(s) immediately surrounding the sample or specimen at the time of
+      sampling. These should be mass/volume nouns (e.g. air, water) and not discrete, countable entities
+      (e.g. a tree, a leaf, a table top).
+      See https://github.com/EnvironmentOntology/envo/wiki/Using-ENVO-with-MIxS
