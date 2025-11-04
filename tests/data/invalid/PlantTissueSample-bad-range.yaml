@@ -1,0 +1,10 @@
+id: 3
+sample_container: box
+strain_variety_cultivar: RTx430
+ncbi_taxonomy_id: NCBITaxon:4558
+ploidy: octoploid
+collection_date_time: "2025-08-10T14:00:00-07:00"
+sample_size: 0.45 g
+tissue: 5 mm lateral root tips
+depth_meters: "very deep"
+elevation_meters: true
