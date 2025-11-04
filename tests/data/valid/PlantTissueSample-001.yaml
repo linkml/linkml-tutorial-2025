@@ -1,0 +1,13 @@
+id: 1
+sample_container: tube
+strain_variety_cultivar: RTx430
+ncbi_taxonomy_id: NCBITaxon:4558
+ploidy: diploid
+collection_date_time: "2025-08-10T14:00:00-07:00"
+sample_size: 0.45 g
+tissue: 5 mm lateral root tips
+tissue_plant_ontology_term: PO:0025471
+elevation_meters: 120
+broad_scale_environmental_context: ENVO:01000247
+local_environmental_context: ENVO:01000333
+environmental_medium: ENVO:00005789

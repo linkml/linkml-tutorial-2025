@@ -151,7 +151,6 @@ slots:
 
   tissue_plant_ontology_term:
     range: TissueTypeEnum
-    multivalued: true
     description: >-
       Plant ontology term corresponding to plant structure sampled. May include
       multiple terms separated by semicolons. See https://planteome.org
