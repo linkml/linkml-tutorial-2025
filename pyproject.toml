@@ -52,6 +52,7 @@ skip = [
   "project/*",
   "src/linkml_tutorial_2025/datamodel/linkml_tutorial_2025_pydantic.py",
   "src/linkml_tutorial_2025/datamodel/linkml_tutorial_2025.py",
+  "notebook-examples/*",
 ]
 
 # Reminder: words have to be lowercased for the ignore-words-list
@@ -69,4 +70,5 @@ extend-exclude = [
   "project/*",
   "src/linkml_tutorial_2025/datamodel/linkml_tutorial_2025_pydantic.py",
   "src/linkml_tutorial_2025/datamodel/linkml_tutorial_2025.py",
+  "notebook-examples/*",
 ]
