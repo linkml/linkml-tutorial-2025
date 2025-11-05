@@ -1,0 +1,806 @@
+name: clinical-research-schema
+id: http://example.org/clinical-research-schema
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  clinical_research_schema:
+    prefix_prefix: clinical_research_schema
+    prefix_reference: http://example.org/clinical-research-schema/
+  biolink:
+    prefix_prefix: biolink
+    prefix_reference: https://w3id.org/biolink/vocab/
+  RO:
+    prefix_prefix: RO
+    prefix_reference: http://purl.obolibrary.org/obo/RO_
+  HL7:
+    prefix_prefix: HL7
+    prefix_reference: http://terminology.hl7.org/CodeSystem/
+  SNOMED:
+    prefix_prefix: SNOMED
+    prefix_reference: http://snomed.info/id/
+default_prefix: clinical_research_schema
+default_range: string
+types:
+  ISODateTime:
+    name: ISODateTime
+    description: ISO 8601 formatted datetime
+    typeof: string
+    pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}
+enums:
+  ApprovalStatusEnum:
+    name: ApprovalStatusEnum
+    description: ''
+    from_schema: https://w3id.org/biolink/biolink-model
+    permissible_values:
+      discovery_and_development_phase:
+        text: discovery_and_development_phase
+        description: Discovery & Development Phase. Discovery involves researchers
+          finding new possibilities for medication through testing molecular compounds,
+          noting unexpected effects from existing treatments, or the creation of new
+          technology that allows novel ways of targeting medical products to sites
+          in the body. Drug development occurs after researchers identify potential
+          compounds for experiments.
+      preclinical_research_phase:
+        text: preclinical_research_phase
+        description: 'Preclinical Research Phase.  Once researchers have examined
+          the possibilities a new drug may contain, they must do preliminary research
+          to determine its potential for harm (toxicity). This is categorized as preclinical
+          research and can be one of two types: in vitro or in vivo.'
+      fda_clinical_research_phase:
+        text: fda_clinical_research_phase
+        description: Clinical Research Phase. Clinical research involves trials of
+          the drug on people, and it is one of the most involved stages in the drug
+          development and approval process. Clinical trials must answer specific questions
+          and follow a protocol determined by the drug researcher or manufacturer.
+      fda_review_phase_4:
+        text: fda_review_phase_4
+        description: FDA Review
+      fda_post_market_safety_review:
+        text: fda_post_market_safety_review
+        description: FDA Post-Market Safety Monitoring.  The last phase of drug approval
+          is an ongoing one while the drug is on the marketplace. If a developer wants
+          to change anything about the drug formulation or approve it for a new use,
+          they must apply with the FDA. The FDA also frequently reviews the drug’s
+          advertising and its manufacturing facility to make sure everything involved
+          in its creation and marketing is in compliance with regulations.
+      fda_clinical_research_phase_1:
+        text: fda_clinical_research_phase_1
+        description: In the FDA Clinical Research Phase, the Clinical Research Phase
+          1 involves 20 – 100 study participants and lasts several months. This phase
+          is used to determine the safety and dosage of the drug, and about 70% of
+          these drugs move on to the next clinical research phase.
+      fda_clinical_research_phase_2:
+        text: fda_clinical_research_phase_2
+        description: In the FDA Clinical Research Phase, the Clinical Research Phase
+          2 involves up to several hundred people, who must have the disease or condition
+          the drug supposes to treat. This phase can last from a few months to two
+          years, and its purpose is to monitor the efficacy of the drug, as well as
+          note side effects that may occur.
+      fda_clinical_research_phase_3:
+        text: fda_clinical_research_phase_3
+        description: In the FDA Clinical Research Phase, the Clinical Research Phase
+          3 involves 300 – 3000 volunteers and can last up to four years. It is used
+          to continue monitoring the efficacy of the drug, as well as exploring any
+          longer-term adverse reactions.
+      fda_clinical_research_phase_4:
+        text: fda_clinical_research_phase_4
+        description: In the FDA Clinical Research Phase, the Clinical Research Phase
+          4 involves several thousands of volunteers who have the disease or condition
+          and continues to monitor safety and efficacy. If a drug passes this phase,
+          it goes on to FDA review.
+      fda_fast_track:
+        text: fda_fast_track
+        description: Fast track is a process designed to facilitate the development,
+          and expedite the review of drugs to treat serious conditions and fill an
+          unmet medical need. The purpose is to get important new drugs to the patient
+          earlier. Fast Track addresses a broad range of serious conditions. For more
+          information https://www.fda.gov/patients/fast-track-breakthrough-therapy-accelerated-approval-priority-review/fast-track
+      fda_breakthrough_therapy:
+        text: fda_breakthrough_therapy
+        description: Breakthrough Therapy designation is a process designed to expedite
+          the development and review of drugs that are intended to treat a serious
+          condition and preliminary clinical evidence indicates that the drug may
+          demonstrate substantial improvement over available therapy on a clinically
+          significant endpoint(s). For more information https://www.fda.gov/patients/fast-track-breakthrough-therapy-accelerated-approval-priority-review/breakthrough-therapy
+      fda_accelerated_approval:
+        text: fda_accelerated_approval
+        description: When studying a new drug, it can sometimes take many years to
+          learn whether a drug actually provides a real effect on how a patient survives,
+          feels, or functions. A positive therapeutic effect that is clinically meaningful
+          in the context of a given disease is known as “clinical benefit”. Mindful
+          of the fact that it may take an extended period of time to measure a drug’s
+          intended clinical benefit, in 1992 FDA instituted the Accelerated Approval
+          regulations. These regulations allowed drugs for serious conditions that
+          filled an unmet medical need to be approved based on a surrogate endpoint.
+          Using a surrogate endpoint enabled the FDA to approve these drugs faster.
+          For more information https://www.fda.gov/patients/fast-track-breakthrough-therapy-accelerated-approval-priority-review/accelerated-approval
+      fda_priority_review:
+        text: fda_priority_review
+        description: Prior to approval, each drug marketed in the United States must
+          go through a detailed FDA review process. In 1992, under the Prescription
+          Drug User Act (PDUFA), FDA agreed to specific goals for improving the drug
+          review time and created a two-tiered system of review times – Standard Review
+          and Priority Review. A Priority Review designation means FDA’s goal is to
+          take action on an application within 6 months (compared to 10 months under
+          standard review). For more information https://www.fda.gov/patients/fast-track-breakthrough-therapy-accelerated-approval-priority-review/priority-review
+      regular_fda_approval:
+        text: regular_fda_approval
+        description: Regular FDA Approval.  The last phase of drug approval is an
+          ongoing one while the drug is on the marketplace. If a developer wants to
+          change anything about the drug formulation or approve it for a new use,
+          they must apply with the FDA. The FDA also frequently reviews the drug’s
+          advertising and its manufacturing facility to make sure everything involved
+          in its creation and marketing is in compliance with regulations.
+      post_approval_withdrawal:
+        text: post_approval_withdrawal
+  DrugDeliveryEnum:
+    name: DrugDeliveryEnum
+    from_schema: https://w3id.org/biolink/biolink-model
+    permissible_values:
+      inhalation:
+        text: inhalation
+      oral:
+        text: oral
+      absorption_through_the_skin:
+        text: absorption_through_the_skin
+      intravenous_injection:
+        text: intravenous_injection
+  DrugAvailabilityEnum:
+    name: DrugAvailabilityEnum
+    description: ''
+    from_schema: https://w3id.org/biolink/biolink-model
+    permissible_values:
+      over_the_counter:
+        text: over_the_counter
+        description: chemical entity is available over the counter without a prescription.
+      prescription:
+        text: prescription
+        description: chemical entity is available by prescription.
+  EducationLevel:
+    name: EducationLevel
+    description: Years of education that a person has completed
+    from_schema: https://w3id.org/valuesets/demographics
+    source: https://terminology.hl7.org/CodeSystem-v3-EducationLevel.html
+    permissible_values:
+      ELEM:
+        text: ELEM
+        description: Elementary School
+        meaning: HL7:v3-EducationLevel#ELEM
+      SEC:
+        text: SEC
+        description: Some secondary or high school education
+        meaning: HL7:v3-EducationLevel#SEC
+      HS:
+        text: HS
+        description: High School or secondary school degree complete
+        meaning: HL7:v3-EducationLevel#HS
+      SCOL:
+        text: SCOL
+        description: Some College education
+        meaning: HL7:v3-EducationLevel#SCOL
+      ASSOC:
+        text: ASSOC
+        description: Associate's or technical degree complete
+        meaning: HL7:v3-EducationLevel#ASSOC
+      BD:
+        text: BD
+        description: College or baccalaureate degree complete
+        meaning: HL7:v3-EducationLevel#BD
+      PB:
+        text: PB
+        description: Some post-baccalaureate education
+        meaning: HL7:v3-EducationLevel#PB
+      GD:
+        text: GD
+        description: Graduate or professional Degree complete
+        meaning: HL7:v3-EducationLevel#GD
+      POSTG:
+        text: POSTG
+        description: Doctoral or post graduate education
+        meaning: HL7:v3-EducationLevel#POSTG
+  BloodTypeEnum:
+    name: BloodTypeEnum
+    description: ABO and Rh blood group classifications
+    from_schema: https://w3id.org/valuesets/medical/clinical
+    permissible_values:
+      A_POSITIVE:
+        text: A_POSITIVE
+        description: Blood type A, Rh positive
+        meaning: SNOMED:278149003
+        annotations:
+          abo:
+            tag: abo
+            value: A
+          rh:
+            tag: rh
+            value: positive
+          can_receive:
+            tag: can_receive
+            value: A+, A-, O+, O-
+          can_donate:
+            tag: can_donate
+            value: A+, AB+
+      A_NEGATIVE:
+        text: A_NEGATIVE
+        description: Blood type A, Rh negative
+        meaning: SNOMED:278152006
+        annotations:
+          abo:
+            tag: abo
+            value: A
+          rh:
+            tag: rh
+            value: negative
+          can_receive:
+            tag: can_receive
+            value: A-, O-
+          can_donate:
+            tag: can_donate
+            value: A+, A-, AB+, AB-
+      B_POSITIVE:
+        text: B_POSITIVE
+        description: Blood type B, Rh positive
+        meaning: SNOMED:278150003
+        annotations:
+          abo:
+            tag: abo
+            value: B
+          rh:
+            tag: rh
+            value: positive
+          can_receive:
+            tag: can_receive
+            value: B+, B-, O+, O-
+          can_donate:
+            tag: can_donate
+            value: B+, AB+
+      B_NEGATIVE:
+        text: B_NEGATIVE
+        description: Blood type B, Rh negative
+        meaning: SNOMED:278153001
+        annotations:
+          abo:
+            tag: abo
+            value: B
+          rh:
+            tag: rh
+            value: negative
+          can_receive:
+            tag: can_receive
+            value: B-, O-
+          can_donate:
+            tag: can_donate
+            value: B+, B-, AB+, AB-
+      AB_POSITIVE:
+        text: AB_POSITIVE
+        description: Blood type AB, Rh positive (universal recipient)
+        meaning: SNOMED:278151004
+        annotations:
+          abo:
+            tag: abo
+            value: AB
+          rh:
+            tag: rh
+            value: positive
+          can_receive:
+            tag: can_receive
+            value: all types
+          can_donate:
+            tag: can_donate
+            value: AB+
+          special:
+            tag: special
+            value: universal recipient
+      AB_NEGATIVE:
+        text: AB_NEGATIVE
+        description: Blood type AB, Rh negative
+        meaning: SNOMED:278154007
+        annotations:
+          abo:
+            tag: abo
+            value: AB
+          rh:
+            tag: rh
+            value: negative
+          can_receive:
+            tag: can_receive
+            value: A-, B-, AB-, O-
+          can_donate:
+            tag: can_donate
+            value: AB+, AB-
+      O_POSITIVE:
+        text: O_POSITIVE
+        description: Blood type O, Rh positive
+        meaning: SNOMED:278147001
+        annotations:
+          abo:
+            tag: abo
+            value: O
+          rh:
+            tag: rh
+            value: positive
+          can_receive:
+            tag: can_receive
+            value: O+, O-
+          can_donate:
+            tag: can_donate
+            value: A+, B+, AB+, O+
+      O_NEGATIVE:
+        text: O_NEGATIVE
+        description: Blood type O, Rh negative (universal donor)
+        meaning: SNOMED:278148006
+        annotations:
+          abo:
+            tag: abo
+            value: O
+          rh:
+            tag: rh
+            value: negative
+          can_receive:
+            tag: can_receive
+            value: O-
+          can_donate:
+            tag: can_donate
+            value: all types
+          special:
+            tag: special
+            value: universal donor
+slots:
+  in taxon:
+    name: in taxon
+    annotations:
+      canonical_predicate:
+        tag: canonical_predicate
+        value: true
+    description: connects an entity to its taxonomic classification. Only certain
+      kinds of entities can be taxonomically classified; see 'thing with taxon'
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - instance of
+    - is organism source of gene product
+    - organism has gene
+    - gene found in organism
+    - gene product has organism source
+    exact_mappings:
+    - RO:0002162
+    - WIKIDATA_PROPERTY:P703
+    narrow_mappings:
+    - RO:0002160
+    range: string
+  in taxon label:
+    name: in taxon label
+    annotations:
+      denormalized:
+        tag: denormalized
+        value: true
+    description: The human readable scientific name for the taxon of the entity.
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - WIKIDATA_PROPERTY:P225
+    range: string
+  provided by:
+    name: provided by
+    description: The value in this node property represents the knowledge provider
+      that created or assembled the node and all of its attributes.  Used internally
+      to represent how a particular node made its way into a knowledge provider or
+      graph.
+    from_schema: https://w3id.org/biolink/biolink-model
+    multivalued: true
+  xref:
+    name: xref
+    description: A database cross reference or alternative identifier for a NamedThing
+      or edge between two NamedThings.  This property should point to a database record
+      or webpage that supports the existence of the edge, or gives more detail about
+      the edge. This property can be used on a node or edge to provide multiple URIs
+      or CURIE cross references.
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - dbxref
+    - Dbxref
+    - DbXref
+    - record_url
+    - source_record_urls
+    narrow_mappings:
+    - gff3:Dbxref
+    - gpi:DB_Xrefs
+    range: uriorcurie
+    multivalued: true
+  full name:
+    name: full name
+    description: a long-form human readable name for a thing
+    from_schema: https://w3id.org/biolink/biolink-model
+    range: string
+  synonym:
+    name: synonym
+    description: Alternate human-readable names for a thing
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - alias
+    narrow_mappings:
+    - skos:altLabel
+    - gff3:Alias
+    - AGRKB:synonyms
+    - gpi:DB_Object_Synonyms
+    - HANCESTRO:0330
+    - IAO:0000136
+    - RXNORM:has_tradename
+    range: string
+    multivalued: true
+  id:
+    name: id
+    description: A unique identifier for an entity. Must be either a CURIE shorthand
+      for a URI or a complete URI
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - AGRKB:primaryId
+    - gff3:ID
+    - gpi:DB_Object_ID
+    identifier: true
+    required: true
+  iri:
+    name: iri
+    description: An IRI for an entity. This is determined by the id using expansion
+      rules.
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - WIKIDATA_PROPERTY:P854
+    range: uriorcurie
+  category:
+    name: category
+    description: Name of the high level ontology class in which this entity is categorized.
+      Corresponds to the label for the biolink entity type class. In a neo4j database
+      this MAY correspond to the neo4j label tag. In an RDF database it should be
+      a biolink model class URI. This field is multi-valued. It should include values
+      for ancestors of the biolink class; for example, a protein such as Shh would
+      have category values `biolink:Protein`, `biolink:GeneProduct`, `biolink:MolecularEntity`.
+      In an RDF database, nodes will typically have an rdf:type triples. This can
+      be to the most specific biolink class, or potentially to a class more specific
+      than something in biolink. For example, a sequence feature `f` may have a rdf:type
+      assertion to a SO class such as TF_binding_site, which is more specific than
+      anything in biolink. Here we would have categories {biolink:GenomicEntity, biolink:MolecularEntity,
+      biolink:NamedThing}
+    from_schema: https://w3id.org/biolink/biolink-model
+    designates_type: true
+    is_class_field: true
+    range: uriorcurie
+    multivalued: true
+  type:
+    name: type
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - gff3:type
+    - gpi:DB_Object_Type
+    slot_uri: rdf:type
+    multivalued: true
+  name:
+    name: name
+    description: A human-readable name for an attribute or entity.
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - label
+    - display name
+    - title
+    exact_mappings:
+    - gff3:Name
+    - gpi:DB_Object_Name
+    narrow_mappings:
+    - dct:title
+    - WIKIDATA_PROPERTY:P1476
+    slot_uri: rdfs:label
+    range: string
+  description:
+    name: description
+    description: a human-readable description of an entity
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - definition
+    exact_mappings:
+    - IAO:0000115
+    - skos:definitions
+    narrow_mappings:
+    - gff3:Description
+    slot_uri: dct:description
+    range: string
+  has attribute:
+    name: has attribute
+    description: connects any entity to an attribute
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - SIO:000008
+    close_mappings:
+    - OBI:0001927
+    narrow_mappings:
+    - OBAN:association_has_subject_property
+    - OBAN:association_has_object_property
+    - CPT:has_possibly_included_panel_element
+    - DRUGBANK:category
+    - EFO:is_executed_in
+    - HANCESTRO:0301
+    - LOINC:has_action_guidance
+    - LOINC:has_adjustment
+    - LOINC:has_aggregation_view
+    - LOINC:has_approach_guidance
+    - LOINC:has_divisor
+    - LOINC:has_exam
+    - LOINC:has_method
+    - LOINC:has_modality_subtype
+    - LOINC:has_object_guidance
+    - LOINC:has_scale
+    - LOINC:has_suffix
+    - LOINC:has_time_aspect
+    - LOINC:has_time_modifier
+    - LOINC:has_timing_of
+    - NCIT:R88
+    - NCIT:eo_disease_has_property_or_attribute
+    - NCIT:has_data_element
+    - NCIT:has_pharmaceutical_administration_method
+    - NCIT:has_pharmaceutical_basic_dose_form
+    - NCIT:has_pharmaceutical_intended_site
+    - NCIT:has_pharmaceutical_release_characteristics
+    - NCIT:has_pharmaceutical_state_of_matter
+    - NCIT:has_pharmaceutical_transformation
+    - NCIT:is_qualified_by
+    - NCIT:qualifier_applies_to
+    - NCIT:role_has_domain
+    - NCIT:role_has_range
+    - INO:0000154
+    - HANCESTRO:0308
+    - OMIM:has_inheritance_type
+    - orphanet:C016
+    - orphanet:C017
+    - RO:0000053
+    - RO:0000086
+    - RO:0000087
+    - SNOMED:has_access
+    - SNOMED:has_clinical_course
+    - SNOMED:has_count_of_base_of_active_ingredient
+    - SNOMED:has_dose_form_administration_method
+    - SNOMED:has_dose_form_release_characteristic
+    - SNOMED:has_dose_form_transformation
+    - SNOMED:has_finding_context
+    - SNOMED:has_finding_informer
+    - SNOMED:has_inherent_attribute
+    - SNOMED:has_intent
+    - SNOMED:has_interpretation
+    - SNOMED:has_laterality
+    - SNOMED:has_measurement_method
+    - SNOMED:has_method
+    - SNOMED:has_priority
+    - SNOMED:has_procedure_context
+    - SNOMED:has_process_duration
+    - SNOMED:has_property
+    - SNOMED:has_revision_status
+    - SNOMED:has_scale_type
+    - SNOMED:has_severity
+    - SNOMED:has_specimen
+    - SNOMED:has_state_of_matter
+    - SNOMED:has_subject_relationship_context
+    - SNOMED:has_surgical_approach
+    - SNOMED:has_technique
+    - SNOMED:has_temporal_context
+    - SNOMED:has_time_aspect
+    - SNOMED:has_units
+    - UMLS:has_structural_class
+    - UMLS:has_supported_concept_property
+    - UMLS:has_supported_concept_relationship
+    - UMLS:may_be_qualified_by
+    range: string
+    multivalued: true
+  deprecated:
+    name: deprecated
+    description: A boolean flag indicating that an entity is no longer considered
+      current or valid.
+    from_schema: https://w3id.org/biolink/biolink-model
+    exact_mappings:
+    - oboInOwl:ObsoleteClass
+    range: boolean
+  is supplement:
+    name: is supplement
+    description: ''
+    from_schema: https://w3id.org/biolink/biolink-model
+  highest FDA approval status:
+    name: highest FDA approval status
+    description: Should be the highest level of FDA approval this chemical entity
+      or device has, regardless of which disease, condition or phenotype it is currently
+      being reviewed to treat.  For specific levels of FDA approval for a specific
+      condition, disease, phenotype, etc., see the association slot, 'clinical approval
+      status.'
+    from_schema: https://w3id.org/biolink/biolink-model
+    range: ApprovalStatusEnum
+  drug regulatory status world wide:
+    name: drug regulatory status world wide
+    description: An agglomeration of drug regulatory status worldwide. Not specific
+      to FDA.
+    from_schema: https://w3id.org/biolink/biolink-model
+    aliases:
+    - max phase
+    exact_mappings:
+    - NCIT:C172573
+    narrow_mappings:
+    - NCIT:R172
+    - NCIT:regimen_has_accepted_use_for_disease
+    - REPODB:clinically_tested_approved_unknown_phase
+    - REPODB:clinically_tested_suspended_phase_0
+    - REPODB:clinically_tested_suspended_phase_1
+    - REPODB:clinically_tested_suspended_phase_1_or_phase_2
+    - REPODB:clinically_tested_suspended_phase_2
+    - REPODB:clinically_tested_suspended_phase_2_or_phase_3
+    - REPODB:clinically_tested_suspended_phase_3
+    - REPODB:clinically_tested_terminated_phase_0
+    - REPODB:clinically_tested_terminated_phase_1
+    - REPODB:clinically_tested_terminated_phase_1_or_phase_2
+    - REPODB:clinically_tested_terminated_phase_2
+    - REPODB:clinically_tested_terminated_phase_2_or_phase_3
+    - REPODB:clinically_tested_terminated_phase_3
+    - REPODB:clinically_tested_withdrawn_phase_0
+    - REPODB:clinically_tested_withdrawn_phase_1
+    - REPODB:clinically_tested_withdrawn_phase_1_or_phase_2
+    - REPODB:clinically_tested_withdrawn_phase_2
+    - REPODB:clinically_tested_withdrawn_phase_2_or_phase_3
+    - REPODB:clinically_tested_withdrawn_phase_3
+    range: ApprovalStatusEnum
+  routes of delivery:
+    name: routes of delivery
+    description: the method or process of administering a pharmaceutical compound
+      to achieve a therapeutic effect in humans or animals.
+    from_schema: https://w3id.org/biolink/biolink-model
+    range: DrugDeliveryEnum
+    multivalued: true
+  trade name:
+    name: trade name
+    description: ''
+    from_schema: https://w3id.org/biolink/biolink-model
+  available from:
+    name: available from
+    description: ''
+    from_schema: https://w3id.org/biolink/biolink-model
+    range: DrugAvailabilityEnum
+    multivalued: true
+  max tolerated dose:
+    name: max tolerated dose
+    description: The highest dose of a drug or treatment that does not cause unacceptable
+      side effects. The maximum tolerated dose is determined in clinical trials by
+      testing increasing doses on different groups of people until the highest dose
+      with acceptable side effects is found. Also called MTD.
+    from_schema: https://w3id.org/biolink/biolink-model
+    range: string
+    multivalued: false
+  is toxic:
+    name: is toxic
+    description: ''
+    from_schema: https://w3id.org/biolink/biolink-model
+    range: boolean
+    multivalued: false
+  has chemical role:
+    name: has chemical role
+    id_prefixes:
+    - CHEBI
+    description: A role is particular behaviour which a chemical entity may exhibit.
+    comments:
+    - We expect primarily to use CHEBI chemical roles here; however, we are looking
+      for a mapping between CHEBI And ATC codes to support this slot.
+    from_schema: https://w3id.org/biolink/biolink-model
+    range: string
+    multivalued: true
+  education_level:
+    name: education_level
+    description: Patient education level
+    range: EducationLevel
+  blood_type:
+    name: blood_type
+    description: Patient blood type
+    range: BloodTypeEnum
+  observation_date:
+    name: observation_date
+    description: Date of clinical observation
+    range: ISODateTime
+  patient_id:
+    name: patient_id
+    description: Reference to the patient
+    range: BiologicalEntity
+classes:
+  Disease:
+    name: Disease
+    description: A disorder of structure or function, especially one that produces
+      specific signs, phenotypes or symptoms or that affects a specific location and
+      is not simply a direct result of physical injury.  A disposition to undergo
+      pathological processes that exists in an organism because of one or more disorders
+      in that organism.
+    exact_mappings:
+    - biolink:disease
+    slots:
+    - in taxon
+    - in taxon label
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - id
+    - iri
+    - category
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+  Drug:
+    name: Drug
+    description: A substance intended for use in the diagnosis, cure, mitigation,
+      treatment, or prevention of disease
+    exact_mappings:
+    - biolink:drug
+    slots:
+    - id
+    - is supplement
+    - highest FDA approval status
+    - drug regulatory status world wide
+    - routes of delivery
+    - trade name
+    - available from
+    - max tolerated dose
+    - is toxic
+    - has chemical role
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - iri
+    - category
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+  PhenotypicFeature:
+    name: PhenotypicFeature
+    description: A combination of entity and quality that makes up a phenotyping statement.
+      An observable characteristic of an individual resulting from the interaction
+      of its genotype with its molecular and physical environment.
+    exact_mappings:
+    - biolink:phenotypicfeature
+    slots:
+    - in taxon
+    - in taxon label
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - id
+    - iri
+    - category
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+  BiologicalEntity:
+    name: BiologicalEntity
+    exact_mappings:
+    - biolink:biologicalentity
+    slots:
+    - in taxon
+    - in taxon label
+    - provided by
+    - xref
+    - full name
+    - synonym
+    - id
+    - iri
+    - category
+    - type
+    - name
+    - description
+    - has attribute
+    - deprecated
+  ClinicalObservation:
+    name: ClinicalObservation
+    description: A clinical observation capturing patient characteristics
+    slots:
+    - id
+    - patient_id
+    - education_level
+    - blood_type
+    - observation_date
